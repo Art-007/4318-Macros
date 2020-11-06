@@ -24,7 +24,7 @@ Private Sub cmdRectangle_Click()
     
     ElseIf optArea.Value = True Then
     MsgBox "The formula for an Area of a Rectangle is length * width" & vbNewLine & "You need A side and a B side"
-    AnswerBox = 2 * val(ABox) + 2 * val(BBox)
+    AnswerBox = val(ABox) * val(BBox)
     
     End If
 End Sub
