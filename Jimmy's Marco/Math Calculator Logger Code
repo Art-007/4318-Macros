@@ -43,7 +43,6 @@ CurrentCell.Value = " = "
 Set CurrentCell = CurrentCell.Offset(0, 1)
 CurrentCell.Value = val(ValBox) / val(ValBox2)
 
-MsgBox CurrentCell
 AnswerBox = val(ValBox) / val(ValBox2)
 End Sub
 
@@ -124,6 +123,7 @@ CurrentCell.Value = " = "
 Set CurrentCell = CurrentCell.Offset(0, 1)
 CurrentCell.Value = val(ValBox) - val(ValBox2)
 
+AnswerBox = val(ValBox) - val(ValBox2)
 End Sub
 
 Private Sub cmdClear_Click()
