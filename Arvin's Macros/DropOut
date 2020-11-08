@@ -1,4 +1,3 @@
-  
 Sub DropOut() 'asks user for input and removes the inputted data from selected range
 Dim cell As Range
 Dim drop_type As String
@@ -49,6 +48,7 @@ ask_rep = InputBox("Would you like to replace dropped values? 'Y' or 'N'")
 
 If ask_rep = "Y" Or ask_rep = "y" Then
     rep_type = InputBox("Should the replaced value be Static or Range? 'S' or 'R'")
+End If
     
 If rep_type = "S" Or rep_type = "s" Then
     rep_val = InputBox("Enter replacement value: ")
@@ -65,7 +65,7 @@ End If
 If rep_type = "R" Or rep_type = "r" Then
     min_rep_val = InputBox("Enter min of range")
     max_rep_val = InputBox("Enter max of range")
-    For Each cell In Selecion
+    For Each cell In Selection
     If IsEmpty(cell) Then
     cell = WorksheetFunction.RandBetween(min_rep_val, max_rep_val)
     End If
