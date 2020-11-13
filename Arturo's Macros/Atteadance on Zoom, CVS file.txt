@@ -7,10 +7,17 @@ Sub opening_zoom()
     'using Application.GetOpenFilename method to filter the csv and thus open the file
     zoom = Application.GetOpenFilename("CSV File (*.csv), *.csv")
     
+    ' for error when clicking cancel
+    On Error Resume Next
     'asking the user to input the A columb to place the cvs information
-    Set cell_range = Application.InputBox("Cell to begin copying this CSV File: ", "Select Range", Type:=8)
+    Set cell_range = Application.InputBox("Cell to begin copying this CSV File, Please Select A1: ", "Select Range", Type:=8)
   
-    
+  ' This a method to deal with cancel debug error with a range as a variable and a object required
+  ' the user click the cancel button
+   If Err.Number = 424 Then
+        Exit Sub
+    End If
+    On Error GoTo 0   '  this disables the error handling
     
   ' assigning the location to range adresss
     location = cell_range.Address
@@ -189,10 +196,4 @@ Next
    
     
 End Sub
-
-
-
-
-
-
 
