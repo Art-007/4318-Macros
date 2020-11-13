@@ -73,8 +73,14 @@ Set input_temp = find_user_input
    '  ask user if he wants to rename close toghther duplicates
     answer = MsgBox("There are duplicates close together, do you wanna rename them, by adding a number after the ?", vbQuestion + vbYesNo)
     
+    ' if user inputs cancel
+    If answer = vbNo Then
+        Exit Sub
+    End If
+    
     ' ask the user for the colubm postion by observing the adresss window
    col_postion = InputBox("Please enter the column, after viewing where the duplicates are located, Enter 1 for column A etc. : ")
+      
       If col_postion > 1 Then
         col_postion = col_postion - 1
         Else
@@ -114,5 +120,6 @@ Else
 'do nothing
   End If
 End Sub
+
 
 
