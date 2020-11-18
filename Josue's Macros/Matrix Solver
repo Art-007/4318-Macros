@@ -20,7 +20,7 @@ Dim det As Double
 With Worksheets(1)
     Set found = Selection
     If found <> "" Then
-        If found.Offset(1, 1) <> "" Then
+        If Not IsEmpty(found.Offset(1, 1)) Then
             searchTxt = Split(found.Offset(1, 1), "x")
             For i = 0 To CInt(searchTxt(1)) + 1
                 For j = 1 To CInt(searchTxt(0)) + 1
@@ -44,13 +44,13 @@ With Worksheets(1)
             matrix1Name = searchTxt(0)
         End If
         
-        Set matrix1Address = .Range("A1").Find(matrix1Name)
-        If matrix1Address = "" Then
-            MsgBox matrix1Address & " " & matrix1Name
+        Set matrix1Address = .Range("A1")
+        
+        If matrix1Address <> matrix1Name Then
             Set matrix1Address = .Range("A1:AC50").Find(matrix1Name)
         End If
         
-        If matrix1Address <> "" And matrix1Address.Offset(0, 1) <> "" Then
+        If Not IsEmpty(matrix1Address) And Not IsEmpty(matrix1Address.Offset(0, 1)) Then
             size1 = getArraySize(matrix1Address.Offset(0, 1))
             matrix1 = createMatrix(matrix1Address.Offset(0, 1))
         Else
