@@ -21,7 +21,7 @@ Sub unitConverter()
         End If
         
         If temp <> 0 Then
-            myRange.Cells(RowIndex:=i, ColumnIndex:=2) = temp & " " & desiredUnit
+            myRange.Cells(RowIndex:=i, ColumnIndex:=1) = temp & " " & desiredUnit
         End If
     Next i
     
